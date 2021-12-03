@@ -1,0 +1,17 @@
+version: '3.2'
+
+services:
+  spring-kotlin-user-auth-postgresql:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "Password@123"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/apps/postgresql:/var/lib/postgresql
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge
