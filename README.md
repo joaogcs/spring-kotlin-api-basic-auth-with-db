@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://github.com/joaogcs/spring-kotlin-user-auth-postgresql/actions"><img alt="Actions Status" src="https://github.com/joaogcs/spring-kotlin-user-auth-postgresql/workflows/CI/badge.svg"></a>
   <a href="https://github.com/relekang/python-semantic-release"><img alt="Semantic Release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"></a>
-  <a href="https://github.com/joaogcs/spring-kotlin-user-auth-postgresql/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/joaogcs/spring-kotlin-user-auth-postgresql"/></a>
+  <a href="https://github.com/joaogcs/spring-kotlin-user-auth-postgresql/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/joaogcs/spring-kotlin-user-auth-postgresql"/></a>
   <a href="https://open.vscode.dev/joaogcs/spring-kotlin-user-auth-postgresql"><img alt="Open in Visual Studio Code" src="https://open.vscode.dev/badges/open-in-vscode.svg"/></a>
 </p>
 
