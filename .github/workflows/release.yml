@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+env:
+  GITHUB_TOKEN: ${{ secrets.PAT }}
+
 jobs:
   release:
     name: Release
