@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>spring-kotlin-user-auth-postgresql</artifactId>
-	<version>1.0.4</version>
+	<version>1.0.5-SNAPSHOT</version>
 	<name>spring-kotlin-user-auth-postgresql</name>
 	<description>Demo project for Spring Boot user authorization</description>
 	<properties>
