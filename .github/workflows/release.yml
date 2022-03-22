@@ -5,9 +5,6 @@ on:
     branches:
       - master
 
-env:
-  GITHUB_TOKEN: ${{ secrets.PAT }}
-
 jobs:
   release:
     name: Release
@@ -24,7 +21,10 @@ jobs:
       - uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '8'
+          java-version: '11'
+
+      - name: Give Maven Wrapper permission to run
+        run: sudo chmod -R a+rwx mvnw
 
       - name: Install semantic-release plugins
         run: npm install @semantic-release/git @conveyal/maven-semantic-release -D
