@@ -23,7 +23,7 @@ First make sure that you have installed the [docker-compose](https://docs.docker
 $ DOCKER_BUILDKIT=1 docker-compose -f ./docker/local/postgresql/docker-compose.yml up -d
 ```
 Then run the application:
-```sh
+```console
 $ ./mvnw spring-boot:run
 ```
 To access the project documentation, access the url:
