@@ -19,7 +19,7 @@ This API was developed using the stacks:
 - Mockito
 # How to run
 First make sure that you have installed the [docker-compose](https://docs.docker.com/compose/gettingstarted/), run docker-compose command to build local postgresql database:
-```sh
+```console
 $ DOCKER_BUILDKIT=1 docker-compose -f ./docker/local/postgresql/docker-compose.yml up -d
 ```
 Then run the application:
