@@ -18,6 +18,7 @@
 		<kotlin.version>1.6.0</kotlin.version>
 		<springdoc-openapi-ui.version>1.5.12</springdoc-openapi-ui.version>
 		<springdoc-openapi-security.version>1.5.12</springdoc-openapi-security.version>
+		<spring.thin.layout.version>1.0.26.RELEASE</spring.thin.layout.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -88,6 +89,20 @@
 		<sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
 		<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
 		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot.experimental</groupId>
+				<artifactId>spring-boot-thin-maven-plugin</artifactId>
+				<version>${spring.thin.layout.version}</version>
+				<executions>
+					<execution>
+						<id>resolve</id>
+						<goals>
+							<goal>resolve</goal>
+						</goals>
+						<inherited>false</inherited>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
