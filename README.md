@@ -1,10 +1,10 @@
-<h2 align="center">Spring Kotlin API Auth with PostgreSQL</h2>
+<h2 align="center">Spring Kotlin API Auth with SQL Datasource (H2 but could be PostgreSQL, MySQL or any other)</h2>
 
 <p align="center">
-  <a href="https://github.com/joaogcs/spring-kotlin-user-auth-postgresql/actions"><img alt="Actions Status" src="https://github.com/joaogcs/spring-kotlin-user-auth-postgresql/workflows/CI/badge.svg"></a>
+  <a href="https://github.com/joaogcs/spring-kotlin-user-auth-sql-datasource/actions"><img alt="Actions Status" src="https://github.com/joaogcs/spring-kotlin-user-auth-sql-datasource/workflows/CI/badge.svg"></a>
   <a href="https://github.com/relekang/python-semantic-release"><img alt="Semantic Release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"></a>
-  <a href="https://github.com/joaogcs/spring-kotlin-user-auth-postgresql/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/joaogcs/spring-kotlin-user-auth-postgresql"/></a>
-  <a href="https://open.vscode.dev/joaogcs/spring-kotlin-user-auth-postgresql"><img alt="Open in Visual Studio Code" src="https://open.vscode.dev/badges/open-in-vscode.svg"/></a>
+  <a href="https://github.com/joaogcs/spring-kotlin-user-auth-sql-datasource/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/joaogcs/spring-kotlin-user-auth-sql-datasource"/></a>
+  <a href="https://open.vscode.dev/joaogcs/spring-kotlin-user-auth-sql-datasource"><img alt="Open in Visual Studio Code" src="https://open.vscode.dev/badges/open-in-vscode.svg"/></a>
 </p>
 
 # 
@@ -20,7 +20,7 @@ This API was developed using the stacks:
 # How to run
 First make sure that you have installed the [docker-compose](https://docs.docker.com/compose/gettingstarted/), run docker-compose command to build local postgresql database:
 ```sh
-$ DOCKER_BUILDKIT=1 docker-compose -f ./docker/local/postgresql/docker-compose.yml up -d
+$ DOCKER_BUILDKIT=1 docker-compose -f ./docker/local/h2/docker-compose.yml up -d
 ```
 Then run the application:
 ```sh

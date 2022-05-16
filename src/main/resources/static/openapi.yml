@@ -1,0 +1,166 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080/api
+    description: Generated server url
+security:
+  - basicAuth: []
+tags:
+  - name: Actuator
+    description: Monitor and interact
+    externalDocs:
+      description: Spring Boot Actuator Web API Documentation
+      url: https://docs.spring.io/spring-boot/docs/current/actuator-api/html/
+  - name: User management
+    description: Manage users
+paths:
+  /actuator/health:
+    get:
+      operationId: health
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v2+json:
+              schema:
+                type: object
+            application/vnd.spring-boot.actuator.v3+json:
+              schema:
+                type: object
+          description: OK
+        '404':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDto'
+          description: Not Found
+      summary: Actuator web endpoint 'health'
+      tags:
+        - Actuator
+  /users:
+    post:
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewUserRequestDto'
+        required: true
+      responses:
+        '201':
+          description: Created
+        '404':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDto'
+          description: Not Found
+      tags:
+        - User management
+  /users/all:
+    get:
+      operationId: findAllUsers
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserResponseDto'
+          description: OK
+        '404':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDto'
+          description: Not Found
+      tags:
+        - User management
+  /users/count:
+    get:
+      operationId: getNumberOfUsers
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int32
+          description: OK
+        '404':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDto'
+          description: Not Found
+      tags:
+        - User management
+  /users/email/{email}:
+    get:
+      operationId: findUserByEmail
+      parameters:
+        - in: path
+          name: email
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserResponseDto'
+          description: OK
+        '404':
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorResponseDto'
+          description: Not Found
+      tags:
+        - User management
+components:
+  schemas:
+    ErrorResponseDto:
+      type: object
+      properties:
+        error:
+          type: string
+    NewUserRequestDto:
+      type: object
+      properties:
+        email:
+          type: string
+        enabled:
+          type: boolean
+        password:
+          maxLength: 20
+          minLength: 6
+          type: string
+        username:
+          maxLength: 20
+          minLength: 3
+          type: string
+      required:
+        - email
+        - enabled
+        - password
+        - username
+    UserResponseDto:
+      type: object
+      properties:
+        email:
+          type: string
+        enabled:
+          type: boolean
+        username:
+          type: string
+  securitySchemes:
+    basicAuth:
+      scheme: basic
+      type: http
