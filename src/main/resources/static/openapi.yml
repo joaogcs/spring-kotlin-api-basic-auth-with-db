@@ -1,15 +1,28 @@
 openapi: 3.0.1
 info:
-  title: @name@
+  title: |
+    @name@
   description: |
+    ## Description
     @description@
     
-    > Access the H2 console at: [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+    ## More information
     
-    Users:
+    Access the H2 console at: [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+    * **Saved Settings**: Generic H2 (Embedded)
+    * **Setting Name**: Generic H2 (Embedded)
+    
+    
+    * **Driver Class**: org.h2.Driver
+    * **JDBC Url**: jdbc:h2:mem:test
+    * **User Name**: sa
+    * **Password**: password
+    
+    Users available for testing:
     * admin/pass
     * user/pass
-  version: @version@
+  version: |
+    @version@
 tags:
   - name: Actuator
     description: |
@@ -25,23 +38,17 @@ paths:
       operationId: health
       responses:
         '200':
+          description: OK
           content:
             application/json:
               schema:
                 type: object
-            application/vnd.spring-boot.actuator.v2+json:
-              schema:
-                type: object
-            application/vnd.spring-boot.actuator.v3+json:
-              schema:
-                type: object
-          description: OK
         '404':
+          description: Not Found
           content:
-            '*/*':
+            'application/json':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDto'
-          description: Not Found
       summary: Actuator web endpoint 'health'
       tags:
         - Actuator
@@ -50,7 +57,7 @@ paths:
       operationId: createUser
       summary: Create a new user
       security:
-        - BasicAuth: [ admin ]
+        - BasicAuth: [ ]
       tags:
         - User management
       requestBody:
@@ -63,11 +70,11 @@ paths:
         '201':
           description: Created
         '404':
+          description: Not Found
           content:
             'application/json':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDto'
-          description: Not Found
   /users/all:
     get:
       operationId: findAllUsers
