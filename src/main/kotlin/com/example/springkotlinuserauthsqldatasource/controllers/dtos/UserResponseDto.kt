@@ -1,6 +1,6 @@
-package com.example.springkotlinuserauthsqldatasource.gateways.controllers.dtos
+package com.example.springkotlinuserauthsqldatasource.controllers.dtos
 
-import com.example.springkotlinuserauthsqldatasource.domains.User
+import com.example.springkotlinuserauthsqldatasource.entities.User
 
 class UserResponseDto(
     val username: String,

@@ -1,6 +1,6 @@
 package com.example.springkotlinuserauthsqldatasource.usecases.ports
 
-import com.example.springkotlinuserauthsqldatasource.domains.User
+import com.example.springkotlinuserauthsqldatasource.entities.User
 
 interface UserRepositoryPort {
     fun getNumberOfUsers(): Int

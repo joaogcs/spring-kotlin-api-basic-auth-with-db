@@ -1,24 +1,11 @@
 server:
   port: 8080
-  servlet:
-    context-path: /api
   error:
     include-binding-errors: always
 
-management:
-  health:
-    db:
-      enabled: true
-
 authorization:
-  secure:
+  endpoints:
     - path: /users/all
-      methods: # options: ["*", GET, POST, PUT, DELETE, HEAD, OPTIONS]
-        - GET
-      roles:
-        - ADMIN
-        - USER
-    - path: /users/count
       methods: # options: ["*", GET, POST, PUT, DELETE, HEAD, OPTIONS]
         - GET
       roles:
@@ -44,21 +31,23 @@ springdoc:
   writer-with-order-by-keys: true
   swagger-ui:
     displayRequestDuration: true
-    path: /swagger-ui.html
+    path: /swagger-ui
     url: /openapi.yml
     oauth:
       appName: spring-kotlin-user-auth-sql-datasource
 
 spring:
+  h2:
+    console.enabled: true
   flyway:
     enabled: true
     locations: classpath:db/migration
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
   datasource:
     driverClassName: org.h2.Driver
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:mem:test
     username: sa
     password: password

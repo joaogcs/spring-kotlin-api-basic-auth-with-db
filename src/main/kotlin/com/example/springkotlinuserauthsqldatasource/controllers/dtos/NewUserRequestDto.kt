@@ -1,4 +1,4 @@
-package com.example.springkotlinuserauthsqldatasource.gateways.controllers.dtos
+package com.example.springkotlinuserauthsqldatasource.controllers.dtos
 
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank

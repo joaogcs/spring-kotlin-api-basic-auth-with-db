@@ -1,4 +1,4 @@
-package com.example.springkotlinuserauthsqldatasource.domains
+package com.example.springkotlinuserauthsqldatasource.entities
 
 data class User(
     val username: String,

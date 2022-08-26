@@ -1,6 +1,6 @@
 package com.example.springkotlinuserauthsqldatasource.usecases
 
-import com.example.springkotlinuserauthsqldatasource.domains.User
+import com.example.springkotlinuserauthsqldatasource.entities.User
 import com.example.springkotlinuserauthsqldatasource.usecases.ports.UserRepositoryPort
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
@@ -27,34 +27,27 @@ internal class GetUserUseCaseTest {
             User(username = "suzan", "suzan@example.com", "1234", true),
             User(username = "john", "john+alias@example.com", "1234", false),
         )
-
         whenever(userRepositoryPort.findAll()).thenReturn(users)
-
         val result = getUserUseCase.all()
-
         verify(userRepositoryPort).findAll()
-
         assertThat(result).isEqualTo(result)
     }
 
     @Test
     fun `get all users should return empty list`() {
         getUserUseCase.all()
-
         verify(userRepositoryPort).findAll()
     }
 
     @Test
     fun `count all users should return integer`() {
         getUserUseCase.countAll()
-
         verify(userRepositoryPort).getNumberOfUsers()
     }
 
     @Test
     fun `by email should return User`() {
         getUserUseCase.byEmail("email@example.com")
-
         verify(userRepositoryPort).findUserByEmail(eq("email@example.com"))
     }
 }

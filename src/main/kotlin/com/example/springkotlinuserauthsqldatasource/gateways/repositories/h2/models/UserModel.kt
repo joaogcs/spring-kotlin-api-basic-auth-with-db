@@ -1,6 +1,6 @@
 package com.example.springkotlinuserauthsqldatasource.gateways.repositories.h2.models
 
-import com.example.springkotlinuserauthsqldatasource.domains.User
+import com.example.springkotlinuserauthsqldatasource.entities.User
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Id
@@ -8,7 +8,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "users")
-data class UserModel(
+class UserModel(
     @Id
     @Column(name = "username", nullable = false)
     val username: String? = null,
@@ -20,14 +20,14 @@ data class UserModel(
     private val password: String? = null,
 
     @Column(name = "enabled", nullable = false)
-    val enabled: Boolean? = true,
+    val enabled: Boolean? = null,
 ) {
     fun toDomain(): User {
         return User(
             username = username!!,
             email = email!!,
             password = password!!,
-            enabled = enabled!!
+            enabled = enabled!!,
         )
     }
 }

@@ -1,7 +1,7 @@
-package com.example.springkotlinuserauthsqldatasource.gateways.controllers.exceptions
+package com.example.springkotlinuserauthsqldatasource.controllers.exceptions
 
-import com.example.springkotlinuserauthsqldatasource.domains.exceptions.NotFoundException
-import com.example.springkotlinuserauthsqldatasource.gateways.controllers.dtos.ErrorResponseDto
+import com.example.springkotlinuserauthsqldatasource.entities.exceptions.NotFoundException
+import com.example.springkotlinuserauthsqldatasource.controllers.dtos.ErrorResponseDto
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseStatus

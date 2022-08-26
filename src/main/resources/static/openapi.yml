@@ -1,15 +1,19 @@
 openapi: 3.0.1
 info:
-  title: OpenAPI definition
-  version: v0
-servers:
-  - url: http://localhost:8080/api
-    description: Generated server url
-security:
-  - basicAuth: []
+  title: @name@
+  description: |
+    @description@
+    
+    > Access the H2 console at: [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+    
+    Users:
+    * admin/pass
+    * user/pass
+  version: @version@
 tags:
   - name: Actuator
-    description: Monitor and interact
+    description: |
+      Monitor and interact
     externalDocs:
       description: Spring Boot Actuator Web API Documentation
       url: https://docs.spring.io/spring-boot/docs/current/actuator-api/html/
@@ -44,6 +48,11 @@ paths:
   /users:
     post:
       operationId: createUser
+      summary: Create a new user
+      security:
+        - BasicAuth: [ admin ]
+      tags:
+        - User management
       requestBody:
         content:
           application/json:
@@ -55,19 +64,19 @@ paths:
           description: Created
         '404':
           content:
-            '*/*':
+            'application/json':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDto'
           description: Not Found
-      tags:
-        - User management
   /users/all:
     get:
       operationId: findAllUsers
+      security:
+        - BasicAuth: [ ]
       responses:
         '200':
           content:
-            '*/*':
+            'application/json':
               schema:
                 type: array
                 items:
@@ -75,7 +84,7 @@ paths:
           description: OK
         '404':
           content:
-            '*/*':
+            'application/json':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDto'
           description: Not Found
@@ -87,14 +96,14 @@ paths:
       responses:
         '200':
           content:
-            '*/*':
+            'application/text':
               schema:
                 type: integer
                 format: int32
           description: OK
         '404':
           content:
-            '*/*':
+            'application/json':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDto'
           description: Not Found
@@ -103,6 +112,8 @@ paths:
   /users/email/{email}:
     get:
       operationId: findUserByEmail
+      security:
+        - BasicAuth: [ ]
       parameters:
         - in: path
           name: email
@@ -112,13 +123,13 @@ paths:
       responses:
         '200':
           content:
-            '*/*':
+            'application/json':
               schema:
                 $ref: '#/components/schemas/UserResponseDto'
           description: OK
         '404':
           content:
-            '*/*':
+            'application/json':
               schema:
                 $ref: '#/components/schemas/ErrorResponseDto'
           description: Not Found
@@ -161,6 +172,6 @@ components:
         username:
           type: string
   securitySchemes:
-    basicAuth:
+    BasicAuth:
       scheme: basic
       type: http

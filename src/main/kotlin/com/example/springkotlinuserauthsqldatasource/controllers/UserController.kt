@@ -1,7 +1,7 @@
-package com.example.springkotlinuserauthsqldatasource.gateways.controllers
+package com.example.springkotlinuserauthsqldatasource.controllers
 
-import com.example.springkotlinuserauthsqldatasource.gateways.controllers.dtos.NewUserRequestDto
-import com.example.springkotlinuserauthsqldatasource.gateways.controllers.dtos.UserResponseDto
+import com.example.springkotlinuserauthsqldatasource.controllers.dtos.NewUserRequestDto
+import com.example.springkotlinuserauthsqldatasource.controllers.dtos.UserResponseDto
 import com.example.springkotlinuserauthsqldatasource.usecases.GetUserUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*

@@ -1,4 +1,4 @@
-package com.example.springkotlinuserauthsqldatasource.domains.exceptions
+package com.example.springkotlinuserauthsqldatasource.entities.exceptions
 
 class NotFoundException(
     override val message: String?
